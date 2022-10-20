@@ -1,9 +1,14 @@
 ﻿@page "/"
 
-<PageTitle>Index</PageTitle>
+<PageTitle>Welcome</PageTitle>
+<div style="display:flex ; align-items: center; justify-content: center; text-align: center; flex-direction: column;color: white;
+padding: 15%; font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji">
+    
 
-<h1>app</h1>
+<h1 >Bienvenidos a la página de @nombrePrincipal</h1>
+<h2>Te ofrecemos los mejores productos al día <br><br> <strong>Delivery Gratis</strong></h2>
+</div>
 
-Welcome to your new app.
-
-<SurveyPrompt Title="How is Blazor working for you?" />
+@code {
+    public String nombrePrincipal = "Un negocio local";
+}

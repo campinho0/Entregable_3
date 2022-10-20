@@ -1,9 +1,8 @@
 .page {
     position: relative;
-    display: flexbox;
-    flex-direction: column;
-    background-image: linear-gradient(180deg, rgb(20, 125, 167) 0%, #b1c4e7 70%);
+    background-image: linear-gradient(180deg, #0E0015 20%, #1c1428db 50% , #000000 );
     height: 100vh;
+    width: 100%;
 }
 
 main {
@@ -11,16 +10,18 @@ main {
 }
 
 .sidebar {
-    background-image: linear-gradient(180deg, rgb(104, 130, 177) 0%, #1d62e2 70%);
+    background-image: linear-gradient(180deg, #1B0129 0%, #1d62e2 70%);
 }
 
 .top-row {
-    background-color: #c73636;
+    background-color: #1b012932;
     height: 3.3rem;
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: flex-start;
     padding-top: 0.5%;
+    
 }
 
     .top-row ::deep a, .top-row .btn-link {
@@ -28,10 +29,7 @@ main {
         margin-left: 1.5rem;
     }
 
-    .top-row a:first-child {
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
+    
 
 @media (max-width: 640.98px) {
     .top-row:not(.auth) {
