@@ -1,8 +1,35 @@
 ﻿@page "/products"
-<h3>Products</h3>
+<h3 style="color: #F17353; text-align:center">Products</h3>
+<h3>@cont</h3>
+<div style="display:flex;
+  justify-content: space-between;;
+  align-items:center;
+  flex-wrap:wrap;">
+    
+    @foreach (var producto in ListProducts)
+    {
+        <div style="border: solid 1px #F17353; width: 300px ;height :250px; color:#F17353;margin : 10px; padding:10px">
+            <h2>@producto.Name</h2><br>
+            <h4>@producto.Code</h4><br>
+            <h4>@producto.Price</h4><br>
+        </div> 
+    }
+
+</div>
+
 
 @code {
+    @using PageProducts.Data;
     
+    static int  cont= 0;
 
-
+    public static List<Product> ListProducts = new List<Product>();
+    
+    protected override void OnInitialized()
+    {
+        var pd = new InMemoryProducts();
+        ListProducts = pd.getProducts();
+        cont = ListProducts.Count; 
+    }
+   
 }
