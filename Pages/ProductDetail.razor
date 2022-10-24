@@ -1,11 +1,36 @@
-﻿@page "/product/{@Id}/Detail"
-<h3>ProductDetail:   </h3>
+﻿@page "/producto_/{Id:int}"
 
+
+<div>
+    <img src="https://elnorte.com.co/wp-content/uploads/2021/02/canasta-familiar.jpg" alt="Imagen de producto"><br>
+    <p>code: @Code</p>
+    <h2>@Name</h2><br>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus obcaecati eveniet culpa, delectus quo architecto consequatur </p>
+    <h4>$ @Price</h4>
+</div>
 @code {
     @using PageProducts.Pages;
     @using PageProducts.Data;
+    
 
     [Parameter]
     public int Id { get; set; }
-    private int id;
+    public string? Code {get; set; }
+    public string? Name {get; set; }
+    public double? Price {get; set; }
+    private static List<Product> ListProducts = new List<Product>();
+    static int  cont= 0;
+    protected override void OnInitialized(){
+        var pd = new InMemoryProducts();
+        ListProducts = pd.getProducts();
+        cont= ListProducts.Count; 
+    foreach(var product in ListProducts)
+    {
+        if( this.Id == product.id){
+            this.Code = product.Code;
+            this.Name = product.Name;
+            this.Price = product.Price;
+        }
+    }
+    }
 }

@@ -8,13 +8,14 @@
   flex-wrap:wrap;">
     
     @foreach (var producto in ListProducts)
-    {
-        <div style="border: solid 1px #F17353; width: 300px ;height :250px; color:#F17353;margin : 10px; padding:10px">
-            <a href="product{@producto.id}Detail"><h2>@producto.Name</h2><br>
-            <h4>@producto.Code</h4><br>
-            <h4>@producto.Price</h4><br>
-            </a>
+    {   <a href="producto_/@producto.id" >
+        <div style=" width: 350px ;height :300px; color:#F17353;margin : 30px; padding:20px">
+            <h2>@producto.Name</h2>
+            <img src="https://elnorte.com.co/wp-content/uploads/2021/02/canasta-familiar.jpg" alt="" style="height: 150px;">
+            <h4>@producto.Code</h4>
+            <h4>@producto.Price</h4>
         </div> 
+        </a>
     }
 
 </div>
@@ -33,5 +34,6 @@
         ListProducts = pd.getProducts();
         cont = ListProducts.Count; 
     }
+    
    
 }
