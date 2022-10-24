@@ -1,5 +1,11 @@
-﻿<h3>ProductDetail</h3>
+﻿@page "/product/{@Id}/Detail"
+<h3>ProductDetail:   </h3>
 
 @code {
+    @using PageProducts.Pages;
+    @using PageProducts.Data;
 
+    [Parameter]
+    public int Id { get; set; }
+    private int id;
 }
