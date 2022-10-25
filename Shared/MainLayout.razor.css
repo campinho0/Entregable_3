@@ -1,6 +1,6 @@
 .page {
     position: relative;
-    background-image: linear-gradient(180deg, #FBEBDC 20%, #FBEBDC 50%  );
+    background-image: linear-gradient(180deg, #cfac8bb5 20%, #FBEBDC 50%  );
     height: 100%;
     width: 100%;
 }
@@ -10,7 +10,7 @@ main {
 }
 
 .sidebar {
-    background-image: linear-gradient(180deg, #1B0129 0%, #e37c3c 70%);
+    background-image: linear-gradient(180deg, #1B0129 0%, #f7995f 70%);
 }
 
 .top-row {

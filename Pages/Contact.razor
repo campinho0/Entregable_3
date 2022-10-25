@@ -1,20 +1,28 @@
 ﻿@page "/contact"
-<PageTitle>Contacto</PageTitle>
-<div style="display:flex ; height: 100vh;align-items: center; text-align: center; flex-direction: column;color: black;
-padding-top: 10%; font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji">
-    <h3>Contacto</h3>
 
-    <label for="">Nombre completo:
-        <input type="text" @bind="nombre"/></label>
-    <label for="">Correo electronico:
-        <input type="text" @bind="correo"/></label>
-    <label for="">Numero de contacto:
-        <input type="text" @bind="numero"/></label>
-    <label for="">Comentarios:       
-        <textarea name="" id="" cols="auto" rows="auto" @bind="comentarios"></textarea>
-    </label>
+<PageTitle>Contacto</PageTitle>
+<style>
+    input , textarea, button{
+        border-radius:15px;
+        background-color: #F17353;
+        border: 0;
+        padding: 10px;
+        margin: 10px;
+    }
+    
+</style>
+<div style="display:flex ; height: 100vh;align-items: center; text-align: center; flex-direction: column;color: #F17353;
+padding-top: 10%; font-family: arial">
+    <h3>Contacto</h3>
+    <div style="display: flex; flex-direction: column"> 
+            <input  type="text" @bind="nombre" placeholder="Ingrese su nombre"/><br>
+            <input  type="text" @bind="correo" placeholder="Ingrese su correo"/><br>
+            <input  type="text" @bind="numero" placeholder="Ingrese su numero de contacto"/><br>
+            <textarea cols="50" rows="auto" @bind="comentarios" placeholder="Dejenos un comentario"></textarea>
+
+    </div>
     <button @onclick="respuestaContacto">Enviar</button>
-    <div style="height: 100px;">
+    <div style="height: 100px; color: #F17353">
     @if (@muestraMensaje)
     {
         <h1>Hola soy, @nombre, Quiero contactarme con ustedes por lo siguiente: <br> @comentarios.<br>
@@ -25,22 +33,30 @@ padding-top: 10%; font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helveti
 
         Teléfono: @numero</h1>
     }
+    @if (campoVacio)
+    {
+     <h1>Ingrese Todos los campos</h1>   
+    }
     </div>
 </div>
 
 @code {
 
-    public bool muestraMensaje = false;    
+    public bool muestraMensaje = false;
+    public bool campoVacio = false;    
     public String? nombre{ get; set; }
     public String? correo{ get; set; }
     public String? numero{ get; set; }
     public String? comentarios{ get; set; }
     
 
-    
-
     public void respuestaContacto(){
-        muestraMensaje = !muestraMensaje;
-        
+        if((nombre !=null && nombre != "") && (correo != null && correo !="") && (numero != null && numero != "") && (comentarios != null && comentarios != "")){
+            campoVacio = false;
+            muestraMensaje = true;
+        }else{
+            muestraMensaje = false;
+            campoVacio = true;
+        }
     }
 }
