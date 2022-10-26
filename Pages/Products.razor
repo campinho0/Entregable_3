@@ -22,11 +22,11 @@
   padding:8%;">
     
     @foreach (var producto in ListProducts)
-    {   <a href="producto_/@producto.id" class="link_producto" >
-        <div style=" width: 100% ; max-width: 400px; color:#F17353;margin : 10px; padding:5px;">
+    {   <a href="producto_/@producto.id/details" class="link_producto" >
+        <div style=" width: 100% ; max-width: 300px; color:#F17353;margin : 10px; padding:5px;">
             <h2 style="font-weight: bold;">@producto.Name</h2>
             <img src="https://elnorte.com.co/wp-content/uploads/2021/02/canasta-familiar.jpg" alt="" style="height: auto; width: 95% ; border-radius: 15px">
-            <h4>@producto.Code</h4>
+            <h4>Codigo: @producto.Code</h4>
             <h4>$ @producto.Price</h4>
         </div> 
         </a>
